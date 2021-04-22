@@ -16,14 +16,19 @@ a {
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: #ababab;
   text-decoration: none;
   outline: 0 none;
 }
 
-h1, h2, h3,
-h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #1e2530;
   font-family: "Open Sans", sans-serif;
   margin: 0;
@@ -36,17 +41,29 @@ p {
 p:last-child {
   margin-bottom: 0;
 }
+/* ================Nishant__________________CSS STYLING=================== */
+p.dotted {
+  border-style: double;
+  border-color: #86a438;
+}
+.space_de_yar {
+  margin-top: 300px;
+}
+.space_fir_de {
+  margin-top: 50px;
+}
+/* ================Nishant__________________CSS STYLING=================== */
 
 /*
  * Selection color
  */
 ::-moz-selection {
-  background-color: #FA6862;
+  background-color: #fa6862;
   color: #fff;
 }
 
 ::selection {
-  background-color: #FA6862;
+  background-color: #fa6862;
   color: #fff;
 }
 
@@ -79,8 +96,11 @@ p:last-child {
   color: inherit;
 }
 
-button, input, select,
-textarea, label {
+button,
+input,
+select,
+textarea,
+label {
   font-weight: 400;
 }
 
@@ -90,12 +110,14 @@ textarea, label {
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
-.btn:hover, .btn:focus, .btn:active:focus {
+.btn:hover,
+.btn:focus,
+.btn:active:focus {
   outline: 0 none;
 }
 
 .btn-primary {
-  background-color: #FA6862;
+  background-color: #fa6862;
   border: 0;
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
@@ -104,7 +126,10 @@ textarea, label {
   padding: 0 42px;
   text-transform: uppercase;
 }
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:focus {
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:active:focus {
   background-color: #f9423a;
 }
 
@@ -117,7 +142,8 @@ textarea, label {
 /*
  *  CSS Helper Class
  */
-.clear:before, .clear:after {
+.clear:before,
+.clear:after {
   content: " ";
   display: table;
 }
@@ -152,7 +178,7 @@ textarea, label {
 
 .primary,
 .link:hover {
-  color: #FA6862;
+  color: #fa6862;
 }
 
 .no-gutter {
@@ -189,7 +215,7 @@ textarea, label {
 }
 
 .nicescroll-cursors {
-  background: #FA6862 !important;
+  background: #fa6862 !important;
 }
 
 .preloader {
@@ -210,7 +236,7 @@ textarea, label {
 }
 
 .loading-mask {
-  background-color: #FA6862;
+  background-color: #fa6862;
   height: 100%;
   left: 0;
   position: absolute;
@@ -261,7 +287,7 @@ textarea, label {
 	Start Styling
 -------------------------------------------------*/
 .site-wrapper {
-  border-top: 4px solid #FA6862;
+  border-top: 4px solid #fa6862;
 }
 
 .page-close {
@@ -313,7 +339,8 @@ textarea, label {
   display: inline-block;
   position: relative;
 }
-.section-title h3::before, .section-title h3::after {
+.section-title h3::before,
+.section-title h3::after {
   content: "";
   height: 2px;
   position: absolute;
@@ -328,7 +355,7 @@ textarea, label {
   bottom: 14px;
 }
 .section-title h3::after {
-  background-color: #FA6862;
+  background-color: #fa6862;
   width: 73px;
 }
 .section-title.light h3 {
@@ -408,7 +435,7 @@ textarea, label {
 }
 .hexagon-item:hover .hex-item div::before,
 .hexagon-item:hover .hex-item div::after {
-  background-color: #FA6862;
+  background-color: #fa6862;
 }
 .hexagon-item:hover .hex-content svg {
   -webkit-transform: scale(0.97);
@@ -463,7 +490,8 @@ textarea, label {
   -o-transform-origin: center center;
   transform-origin: center center;
 }
-.hex-item div::before, .hex-item div::after {
+.hex-item div::before,
+.hex-item div::after {
   background-color: #1e2530;
   content: "";
   position: absolute;
@@ -642,7 +670,7 @@ textarea, label {
   flex-grow: 1;
 }
 .progress .bar {
-  background-color: #FA6862;
+  background-color: #fa6862;
   border-radius: 10px;
   height: 8px;
   width: 0;
@@ -669,8 +697,8 @@ textarea, label {
   border-bottom: 2px solid transparent;
 }
 .filter .active {
-  color: #FA6862;
-  border-bottom-color: #FA6862;
+  color: #fa6862;
+  border-bottom-color: #fa6862;
 }
 
 .works-item {
@@ -724,7 +752,7 @@ textarea, label {
   transform: translate3d(0px, 0px, 0px) scale(0);
 }
 .works-item h4 {
-  color: #FA6862;
+  color: #fa6862;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -818,7 +846,8 @@ textarea, label {
   background-color: #293342;
   margin: 19.05px 0;
 }
-.history-hex::before, .history-hex::after {
+.history-hex::before,
+.history-hex::after {
   content: "";
   position: absolute;
   width: 0;
@@ -910,7 +939,7 @@ textarea, label {
   transform: scale(1.5);
 }
 .service-hex:hover .st1 {
-  fill: #FA6862;
+  fill: #fa6862;
 }
 .service-hex:hover .content {
   width: 135%;
@@ -975,7 +1004,7 @@ textarea, label {
   transition: all 0.3s ease 0s;
 }
 .testimonials .owl-dot.active {
-  border-color: #FA6862;
+  border-color: #fa6862;
 }
 
 .tm-hex {
@@ -993,7 +1022,7 @@ textarea, label {
   position: absolute;
   top: 3.4641px;
   left: 0;
-  width: 158.0000px;
+  width: 158px;
   height: 91.2213px;
   z-index: 2;
   background: inherit;
@@ -1006,19 +1035,20 @@ textarea, label {
   height: 120.21px;
   overflow: hidden;
   background: inherit;
-  left: 18.90px;
+  left: 18.9px;
   -webkit-transform: scaleY(0.5774) rotate(-45deg);
   -moz-transform: scaleY(0.5774) rotate(-45deg);
   -ms-transform: scaleY(0.5774) rotate(-45deg);
   -o-transform: scaleY(0.5774) rotate(-45deg);
   transform: scaleY(0.5774) rotate(-45deg);
 }
-.tm-hex .hexTop::before, .tm-hex .hexTop::after,
+.tm-hex .hexTop::before,
+.tm-hex .hexTop::after,
 .tm-hex .hexBottom::before,
 .tm-hex .hexBottom::after {
   content: "";
   position: absolute;
-  width: 158.0000px;
+  width: 158px;
   height: 91.22134253196087px;
   background: inherit;
   -webkit-transform-origin: 0 0;
@@ -1103,13 +1133,13 @@ textarea, label {
   transform: translate(-50%, -50%);
 }
 .contact-social li:hover span {
-  background-color: #FA6862;
+  background-color: #fa6862;
 }
 .contact-social li:hover span::before {
-  border-bottom-color: #FA6862;
+  border-bottom-color: #fa6862;
 }
 .contact-social li:hover span::after {
-  border-top-color: #FA6862;
+  border-top-color: #fa6862;
 }
 
 .contact-social-hex {
@@ -1124,7 +1154,8 @@ textarea, label {
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
-.contact-social-hex::before, .contact-social-hex::after {
+.contact-social-hex::before,
+.contact-social-hex::after {
   content: "";
   position: absolute;
   width: 0;
@@ -1145,10 +1176,10 @@ textarea, label {
   border-top: 12.41px solid #1e2530;
 }
 .contact-social-hex:hover::after {
-  border-bottom-color: #FA6862;
+  border-bottom-color: #fa6862;
 }
 .contact-social-hex:hover::before {
-  border-top-color: #FA6862;
+  border-top-color: #fa6862;
 }
 
 .contact-form .input-field {
@@ -1210,7 +1241,7 @@ textarea, label {
 }
 
 .msg-success {
-  color: #FA6862;
+  color: #fa6862;
 }
 
 .pt-table.desktop-768 .pt-tablecell {
@@ -1324,19 +1355,19 @@ textarea, label {
 }
 
 .color-options li.c0 {
-  background-color: #FA6862;
+  background-color: #fa6862;
 }
 
 .color-options li.c1 {
-  background-color: #02B7CE;
+  background-color: #02b7ce;
 }
 
 .color-options li.c2 {
-  background-color: #86A438;
+  background-color: #86a438;
 }
 
 .color-options li.c3 {
-  background-color: #F3A36D;
+  background-color: #f3a36d;
 }
 
 .pattern-options li {
@@ -1361,7 +1392,9 @@ textarea, label {
   width: 100%;
   height: 100%;
 }
+/*----------------------------------------------
 
+-------------------------------------------------*/
 /*------------------------------------------------
 	Responsive Media Queries
 -------------------------------------------------*/
@@ -1428,7 +1461,8 @@ textarea, label {
   .service-hex:hover .content {
     width: 105%;
   }
-  .service-hex:nth-child(4), .service-hex:nth-child(5) {
+  .service-hex:nth-child(4),
+  .service-hex:nth-child(5) {
     -webkit-transform: translate(50%, -15%);
     -moz-transform: translate(50%, -15%);
     -ms-transform: translate(50%, -15%);
