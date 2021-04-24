@@ -55,7 +55,7 @@ app.post('/services', async (req, res) => {
 
     const url = req.body.get_url;
     console.log(url)
-    res.send(url)
+    res.render("about")
 
 
     const request = require("request-promise");
@@ -247,12 +247,13 @@ app.post('/services', async (req, res) => {
     }
     product_basic();
     // productDetail();
-    res.render("about");
+    //res.status(201).render("about");
 }
 
   catch (error) {
     res.status(400).send(error)
   }
+  res.status(201).render("about");
 })
 
 app.get("/testimonials", (req, res) => {
