@@ -5,7 +5,7 @@ const { json } = require("express");
 const { resourceUsage } = require("process");
 const amazon = "./utils/Amazon";
 
-const port = process.env.PORT || 3000 //port 3000 ya phir kissi aur port pe
+const port = process.env.PORT || 5500; //port 3000 ya phir kissi aur port pe
 
 const app = express();
 
@@ -14,12 +14,11 @@ const publicDirectoryPath = path.join(__dirname, "../public/dark");
 const viewPath = path.join(__dirname, "../templates/views");
 // const partialsPath=path.join(__dirname,'../templates/partials')
 
-app.use(express.json());//jason file ka use krna h apne is node js me
-app.use(express.urlencoded({ extended: false }))//jo data likunga usko main get krna chahunga
-
+app.use(express.json()); //jason file ka use krna h apne is node js me
+app.use(express.urlencoded({ extended: false })); //jo data likunga usko main get krna chahunga
 
 //setup handelbars engines and view location
-app.set("view engine", 'hbs');
+app.set("view engine", "hbs");
 app.set("views", viewPath);
 // hbs.registerPartials(partialsPath)
 
@@ -50,19 +49,17 @@ app.get("/services", (req, res) => {
   res.render("services");
 });
 
-app.post('/services', async (req, res) => {
+app.post("/services", async (req, res) => {
   try {
-
     const url = req.body.get_url;
-    console.log(url)
-    res.render("about")
-
+    console.log(url);
+    res.render("about");
 
     const request = require("request-promise");
     const cheerio = require("cheerio");
     const downloader = require("node-image-downloader");
     const ObjectsToCsv = require("objects-to-csv");
-    const url1 = url //"https://www.amazon.in/s?k=shirts&rh=n%3A1375424031&ref=nb_sb_noss";
+    const url1 = url; //"https://www.amazon.in/s?k=shirts&rh=n%3A1375424031&ref=nb_sb_noss";
     const scrapesample = {
       title: "U-TURNMens Slim Fit Shirt",
       rating: "4 out of 5",
@@ -94,19 +91,16 @@ app.post('/services', async (req, res) => {
           var newstr1 = "";
 
           for (var i = 0; i < str.length; i++) {
-
-            if (!(str[i] == '\n' || str[i] == '\r')) {
-
+            if (!(str[i] == "\n" || str[i] == "\r")) {
               newstr1 += str[i];
             }
-
           }
           const title = newstr1;
           const rating = $(element).find(".a-icon-alt").text(); // rating of product
           const offer_price = $(element).find(".a-price-whole").text(); //offerprice of product
           const origional_price = $(element).find(".a-offscreen").text(); //origiona price of product
           const original = $(element).find(".a-link-normal").attr("href"); //url of product
-          const url = 'https://www.amazon.in/' + original;
+          const url = "https://www.amazon.in/" + original;
           // const img = $(element).find(".s-image").attr("src");
           // // download the image
 
@@ -124,9 +118,13 @@ app.post('/services', async (req, res) => {
 
           //     })
 
-
-
-          const scrapeResult = { title, rating, offer_price, origional_price, url };
+          const scrapeResult = {
+            title,
+            rating,
+            offer_price,
+            origional_price,
+            url,
+          };
           scrapeResults.push(scrapeResult);
         });
         //}
@@ -155,10 +153,8 @@ app.post('/services', async (req, res) => {
         //         scrapeResults.push(scrapeResult);
         //     });
 
-
         // }
         console.log(scrapeResults);
-
 
         //console.log(htmlResult);
       } catch (err) {
@@ -178,44 +174,37 @@ app.post('/services', async (req, res) => {
             var newstr = "";
 
             for (var i = 0; i < str1.length; i++) {
-
-              if (!(str1[i] == '\n' || str1[i] == '\r')) {
-
+              if (!(str1[i] == "\n" || str1[i] == "\r")) {
                 newstr += str1[i];
               }
-
             }
             job.description = newstr;
 
-
-
-            const str10 = $("#detailBullets_feature_div").children(".a-unordered-list").text().trim();
+            const str10 = $("#detailBullets_feature_div")
+              .children(".a-unordered-list")
+              .text()
+              .trim();
             var newstr10 = "";
             var newstr20 = "";
 
             for (var i = 0; i < str10.length; i++) {
-
-              if (!(str10[i] == '\n' || str10[i] == '\r')) {
-
+              if (!(str10[i] == "\n" || str10[i] == "\r")) {
                 newstr10 += str10[i];
               }
-
             }
             // const des=newstr10;
-            const str11 = $("#feature-bullets").children(".a-unordered-list").text().trim();
+            const str11 = $("#feature-bullets")
+              .children(".a-unordered-list")
+              .text()
+              .trim();
             for (var i = 0; i < str11.length; i++) {
-
-              if (!(str11[i] == '\n' || str11[i] == '\r')) {
-
+              if (!(str11[i] == "\n" || str11[i] == "\r")) {
                 newstr20 += str11[i];
               }
-
             }
             // const des2=newstr20;
             job.des = newstr10;
             job.dis2 = newstr20;
-
-
 
             return job;
           } catch (error) {
@@ -225,19 +214,14 @@ app.post('/services', async (req, res) => {
       );
     }
 
-
-
     async function createCsvFile(data) {
       const csv = new ObjectsToCsv(data);
 
       // Save to file:
-      await csv.toDisk('./amazon.csv');
+      await csv.toDisk("./amazon.csv");
 
       // Return the CSV file as string:
-
     }
-
-
 
     async function product_basic() {
       const productwithHeader = await productDetail();
@@ -248,13 +232,11 @@ app.post('/services', async (req, res) => {
     product_basic();
     // productDetail();
     //res.status(201).render("about");
-}
-
-  catch (error) {
-    res.status(400).send(error)
+  } catch (error) {
+    res.status(400).send(error);
   }
   res.status(201).render("about");
-})
+});
 
 app.get("/testimonials", (req, res) => {
   res.render("testimonials");
