@@ -1,13 +1,22 @@
 const path = require("path");
 const express = require("express");
+const mongoose = require("mongoose");
 const hbs = require("hbs");
 const { json } = require("express");
 const { resourceUsage } = require("process");
 const amazon = "./utils/Amazon";
 
 const port = process.env.PORT || 5500; //port 3000 ya phir kissi aur port pe
+/////////////////////////
+//router
+//////////////////////////////
 
 const app = express();
+// create mongodb//
+mongoose.connect("mongodb://localhost/blog", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 //define paths for express config
 const publicDirectoryPath = path.join(__dirname, "../public/dark");
@@ -25,7 +34,9 @@ app.set("views", viewPath);
 //setup static directory to serve
 
 app.use(express.static(publicDirectoryPath));
+////////////////////////////////////
 
+///////////////////////////
 app.get("", (req, res) => {
   res.render("index", {
     // title:'about me',
@@ -40,11 +51,28 @@ app.get("/about", (req, res) => {
 app.get("/contact", (req, res) => {
   res.render("contact");
 });
+////////////////////////
+const articlerouter = require("../routes/article");
+app.use("/articles", articlerouter);
 
 app.get("/resume", (req, res) => {
-  res.render("resume");
+  const articles = [
+    {
+      title: "abc",
+      createdAt: new Date(),
+      description: "test1",
+      submit: "ferc1",
+    },
+    {
+      title: "abc",
+      createdAt: new Date(),
+      description: "test1",
+      submit: "ferc1",
+    },
+  ];
+  res.render("articles/resume", { titles: articles });
 });
-
+//////////////////////////
 app.get("/services", (req, res) => {
   res.render("services");
 });
