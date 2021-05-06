@@ -3,7 +3,7 @@ const { listenerCount } = require("../models/article");
 let Article = require("../models/article");
 const router = express.Router();
 router.get("/new", (req, res) => {
-  res.render("articles/new", { article: new Article() });
+  res.render("new", { article: new Article() });
 });
 router.get("/:id", (req, res) => {
   //const article=Article.findById(req.params.id)
@@ -18,9 +18,9 @@ router.post("/", async (req, res) => {
   });
   try {
     article = await article.save();
-    res.redirect("/articles/${article.id}");
+    res.redirect("${article.id}");
   } catch (e) {
-    res.render("/articles/new", { article: article });
+    res.render("new", { article: article });
   }
 });
 
