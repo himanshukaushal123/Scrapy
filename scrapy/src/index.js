@@ -238,7 +238,7 @@ app.post('/services', async (req, res) => {
       const csv = new ObjectsToCsv(data);
 
       // Save to file:
-      await csv.toDisk('./scrapy/src/utils/amazon.csv');
+      await csv.toDisk('./scrapy/public/dark/uploadfiles/amazon.csv');
 
       // Return the CSV file as string:
       console.log(await csv.toString());
