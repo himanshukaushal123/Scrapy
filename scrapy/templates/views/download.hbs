@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function download_csv_file(){
+                var csv = "hiihi"
+                document.write(csv);
+                var hiddenElement = document.createElement('a');
+                hiddenElement.href = 'data:file/csv;charset=utf-8,' + encodeURI(csv);
+                hiddenElement.target = '_blank';
+
+                //provide the name for the CSV file to be downloaded  
+                hiddenElement.download = 'Famous Personalities.csv';
+                hiddenElement.click();
+            }</script>
+</head>
+
+<body>
+
+    <h3> Click the button to download the CSV file </h3>
+
+    <!-- create an HTML button to download the CSV file on click -->
+    {{!-- <button onclick="download_csv_file()"> Download CSV </button> --}}
+
+    <a href="http://localhost:3000/uploadfiles/amazon.csv" download>download</a>
+
+
+    </script>
+</body>
+
+</html>

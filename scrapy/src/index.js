@@ -1,9 +1,12 @@
 const path = require("path");
 const express = require("express");
+const fs=require("fs")
 const hbs = require("hbs");
 const { json } = require("express");
 const { resourceUsage } = require("process");
+const { fstat } = require("fs");
 const amazon = "./utils/Amazon";
+// const fastcsv=require("fast-csv")
 
 const port = process.env.PORT || 3000 //port 3000 ya phir kissi aur port pe
 
@@ -49,13 +52,17 @@ app.get("/resume", (req, res) => {
 app.get("/services", (req, res) => {
   res.render("services");
 });
+app.get("/download",(req,re)=>{
+  res.render("download");
+})
 
 app.post('/services', async (req, res) => {
   try {
 
     const url = req.body.get_url;
     console.log(url)
-    res.render("about")
+    // const download=req.body.submit
+    // res.render("download")
 
 
     const request = require("request-promise");
@@ -231,9 +238,10 @@ app.post('/services', async (req, res) => {
       const csv = new ObjectsToCsv(data);
 
       // Save to file:
-      await csv.toDisk('./amazon.csv');
+      await csv.toDisk('./scrapy/src/utils/amazon.csv');
 
       // Return the CSV file as string:
+      console.log(await csv.toString());
 
     }
 
@@ -242,19 +250,23 @@ app.post('/services', async (req, res) => {
     async function product_basic() {
       const productwithHeader = await productDetail();
       const productFullData = await product_basic_descrpiton(productwithHeader);
-      // console.log(productFullData);
+      //document.getElementById("#result").innerHTML=productFullData//console.log(productFullData);
       await createCsvFile(productFullData);
     }
     product_basic();
     // productDetail();
-    //res.status(201).render("about");
+    res.status(201).render("download");
 }
 
   catch (error) {
     res.status(400).send(error)
   }
-  res.status(201).render("about");
+  // res.status(201).render("download");
 })
+
+app.post("/download",(req,res)=>{
+
+ })
 
 app.get("/testimonials", (req, res) => {
   res.render("testimonials");
@@ -268,13 +280,13 @@ app.get("/works", (req, res) => {
 });
 
 //404 not found
-app.get("*", (req, res) => {
-  res.render("404", {
-    title: 404,
-    name: "Himanshu Kaushal",
-    errorMessage: "Page not found",
-  });
-});
+// app.get("*", (req, res) => {
+//   res.render("404", {
+//     title: 404,
+//     name: "Himanshu Kaushal",
+//     errorMessage: "Page not found",
+//   });
+// });
 
 // })
 app.listen(port, () => {
